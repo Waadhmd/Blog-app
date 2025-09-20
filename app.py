@@ -38,6 +38,19 @@ def add():
 
     return render_template('add_post.html')
 
+@app.route('/delete-post/<int:post_id>',methods=['POST'])
+def delete_post(post_id):
+    posts = load_posts()
+    posts = [post for post in posts if post['id'] != post_id]
+    save_posts(posts)
+    return redirect(url_for('index'))
+
+@app.after_request
+def add_header(response):
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    return response
+
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)

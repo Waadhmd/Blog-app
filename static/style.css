@@ -40,3 +40,54 @@ border-radius: 0.375rem;
 font-weight: 500;
 transition: background 0.2s;
 }
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    margin:0 auto;
+}
+
+input, textarea, button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button.delete-btn {
+    width: auto;       /* remove full width */
+    padding: 5px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+form.delete-form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+

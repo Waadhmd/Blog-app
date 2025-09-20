@@ -1,11 +1,5 @@
 [
   {
-    "id": 1,
-    "author": "John Doe",
-    "title": "First Post",
-    "content": "This is my first post."
-  },
-  {
     "id": 2,
     "author": "Jane Doe",
     "title": "Second Post",
@@ -18,9 +12,9 @@
     "author": "waad cosuphy"
   },
   {
-    "id": 4,
-    "title": "test2 ",
-    "content": "nnnnnnnnnnnnnnn",
-    "author": "nala"
+    "id": 3,
+    "title": "Mastering the Art of Writing a Blog",
+    "content": "The first step to writing an amazing blog post that you want to read is choosing a compelling topic. This might seem obvious, but deciding on a specific blog niche and zeroing in on topics and angles within that niche can be tricky.\r\n\r\nWhen I started my blog, I made the mistake of trying to cover too many unrelated topics. From productivity tips to book reviews to travel stories, my blog lacked focus. It felt more like a personal diary than a platform providing value to readers. I also needed to make it easier to read.",
+    "author": "nour aldin"
   }
 ]

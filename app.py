@@ -12,6 +12,10 @@ def load_posts():
     except FileNotFoundError:
         return []
 
+def fetch_post_by_id(posts,post_id):
+    post = next((post for post in posts if post['id'] == post_id),None)
+    return post
+
 def save_posts(post):
     with open(POSTS_FILE_NAME,'w',encoding='UTF-8') as file:
         json.dump(post,file,ensure_ascii=False, indent=2)
@@ -39,11 +43,28 @@ def add():
     return render_template('add_post.html')
 
 @app.route('/delete-post/<int:post_id>',methods=['POST'])
-def delete_post(post_id):
+def delete(post_id):
     posts = load_posts()
     posts = [post for post in posts if post['id'] != post_id]
     save_posts(posts)
     return redirect(url_for('index'))
+
+@app.route('/update/<int:post_id>',methods=['GET','POST'])
+def update(post_id):
+    posts = load_posts()
+    post = fetch_post_by_id(posts,post_id)
+
+    if post is None:
+        return 'Post not found',404
+    if request.method == 'POST':
+        post['title'] = request.form['title']
+        post['content'] = request.form['content']
+        post['author'] = request.form['author']
+        save_posts(posts)
+        return redirect(url_for('index'))
+    else:
+         return render_template('update_post.html',post = post)
+
 
 @app.after_request
 def add_header(response):

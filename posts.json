@@ -1,20 +1,20 @@
 [
   {
-    "id": 2,
-    "author": "Jane Doe",
-    "title": "Second Post",
-    "content": "This is another post."
-  },
-  {
     "id": 3,
-    "title": "test",
-    "content": "also test",
-    "author": "waad cosuphy"
+    "title": "Imagine Star Trek",
+    "content": "It takes imagination to envision the future of space travel. On Nov 18 2022, Martin Tajmar of TU Dresden, Germany gave a lecture, Going to the Stars – How can we build something like Star Trek?, at the AHHAA science centre in Tartu, Estonia. In this blog post, we summarise the lecture by sketching a picture of the engineering and scientific possibilities of building an interstellar spaceship whose main purpose is to reach a star.",
+    "author": "Andris Slavinskis"
   },
   {
     "id": 3,
     "title": "Mastering the Art of Writing a Blog",
     "content": "The first step to writing an amazing blog post that you want to read is choosing a compelling topic. This might seem obvious, but deciding on a specific blog niche and zeroing in on topics and angles within that niche can be tricky.\r\n\r\nWhen I started my blog, I made the mistake of trying to cover too many unrelated topics. From productivity tips to book reviews to travel stories, my blog lacked focus. It felt more like a personal diary than a platform providing value to readers. I also needed to make it easier to read.",
     "author": "nour aldin"
+  },
+  {
+    "id": 3,
+    "title": "Siberian Huskies : Analytical, Energetic, and Loving",
+    "content": "Huskies are bred to work in teams and are therefore very friendly with other dogs and large families and small children. Our Jesse loved small children and would often go to give a child a kiss on the cheek. Children, especially toddlers, had a special place in his heart.",
+    "author": "Aura williams"
   }
 ]

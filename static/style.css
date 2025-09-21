@@ -30,7 +30,7 @@ h1 {
     font-size: 14px;
     color: #666;
 }
-.btn a{
+.add_btn a{
 display: inline-block;
 text-decoration: none;
 background-color:white;
@@ -69,7 +69,8 @@ button {
     border: none;
     cursor: pointer;
 }
-button.delete-btn {
+button.btn,
+a.btn {
     width: auto;       /* remove full width */
     padding: 5px 12px;
     font-size: 14px;
@@ -81,8 +82,15 @@ button.delete-btn {
     transition: 0.3s;
 }
 
-button.delete-btn:hover {
+button.btn:hover {
     background-color: #c0392b;
+}
+.btn.delete {
+    background-color: #e74c3c; /* red */
+}
+
+.btn.update {
+    background-color: #2ecc71; /* green */
 }
 
 form.delete-form {

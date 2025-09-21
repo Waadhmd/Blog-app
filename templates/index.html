@@ -16,13 +16,14 @@
                 <p class="author"><strong>Written By {{ post['author'] }}</strong></p>
             </header>
             <p>{{ post['content'] }}</p>
-            <form class="delete-form" action="{{ url_for('delete_post', post_id=post['id']) }}" method="post">
-             <button class="delete-btn" type="submit">Delete Post</button>
+            <form class="delete-form" action="{{ url_for('delete', post_id=post['id']) }}" method="post">
+             <button class="btn delete" type="submit">Delete Post</button>
             </form>
+            <a href="{{ url_for('update', post_id=post['id']) }}" class="btn update">Update Post</a>
 
         </article>
         {% endfor %}
-        <p class="btn"><a href="{{url_for('add')}}">➕ Add New Post</a></p>
+        <p class="add_btn"><a href="{{url_for('add')}}">➕ Add New Post</a></p>
     </main>
 </body>
 </html>

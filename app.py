@@ -6,6 +6,11 @@ POSTS_FILE_NAME = 'posts.json'
 app = Flask(__name__)
 
 def load_posts():
+    """
+    Load blog posts from the JSON file.
+    Returns:
+        list[dict]: A list of posts, each represented as a dictionary.
+    """
     try:
         with open(POSTS_FILE_NAME, "r", encoding="UTF-8") as file:
             return json.load(file)
@@ -13,25 +18,43 @@ def load_posts():
         return []
 
 def fetch_post_by_id(posts,post_id):
+    """
+    Find and return a blog post by its ID.
+    """
     post = next((post for post in posts if post['id'] == post_id),None)
     return post
 
 def save_posts(post):
+    """
+     Save the list of blog posts to the JSON file
+    """
     with open(POSTS_FILE_NAME,'w',encoding='UTF-8') as file:
         json.dump(post,file,ensure_ascii=False, indent=2)
 
 @app.route('/')
 def index():
+    """
+     Render the homepage with a list of all blog posts.
+     Returns:
+         Response: Rendered HTML page with blog posts.
+     """
     blog_posts = load_posts()
     return render_template('index.html',posts=blog_posts )
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
+    """
+     Handle adding a new blog post.
+     GET:
+         Render the 'add_post.html' template with the form.
+     POST:
+         Create a new post, save it, and redirect to the homepage.
+"""
     blog_posts = load_posts()
     if request.method == 'POST':
         posts = load_posts()
         new_post = {
-            "id": len(posts) + 1,
+            "id": max((post['id'] for post in posts),default=0) + 1,
             "title": request.form.get('title'),
             "content": request.form.get('content'),
             "author": request.form.get('author')
@@ -44,6 +67,11 @@ def add():
 
 @app.route('/delete-post/<int:post_id>',methods=['POST'])
 def delete(post_id):
+    """
+       Handle deleting a blog post by its ID.
+    Args:
+        post_id (int): ID of the post to delete
+    """
     posts = load_posts()
     posts = [post for post in posts if post['id'] != post_id]
     save_posts(posts)
@@ -51,6 +79,13 @@ def delete(post_id):
 
 @app.route('/update/<int:post_id>',methods=['GET','POST'])
 def update(post_id):
+    """
+     Handle updating an existing blog post.
+     GET:
+         Render the 'update_post.html' template with current post data.
+     POST:
+         Update the post's fields, save changes, and redirect to homepage.
+    """
     posts = load_posts()
     post = fetch_post_by_id(posts,post_id)
 

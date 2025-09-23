@@ -50,7 +50,6 @@ def add():
      POST:
          Create a new post, save it, and redirect to the homepage.
 """
-    blog_posts = load_posts()
     if request.method == 'POST':
         posts = load_posts()
         new_post = {
@@ -59,8 +58,8 @@ def add():
             "content": request.form.get('content'),
             "author": request.form.get('author')
         }
-        blog_posts.append(new_post)
-        save_posts(blog_posts)
+        posts.append(new_post)
+        save_posts(posts)
         return redirect(url_for('index'))
 
     return render_template('add_post.html')
